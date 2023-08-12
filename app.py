@@ -17,7 +17,7 @@ ma = Marshmallow(app)
 from routes import *
 from model import *
 
-# update db
+# build db
 migrate = Migrate(app, db)
 with app.app_context():
     db.create_all()
