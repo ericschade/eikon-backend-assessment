@@ -12,7 +12,7 @@ docker compose up
 
 BUT you can use the provided python script which will run in detached mode:
 ```commandline
-python build_and_compose.py
+python scripts/build_and_compose.py
 ```
 
 To trigger an etl using curl:
@@ -22,7 +22,7 @@ curl -X POST http://localhost:5000/trigger_etl
 ```
 ...but you can also use the provided script:
 ```commandline
-python trigger_etl.py
+python scripts/trigger_etl.py
 ```
 
 To get past results with curl:
