@@ -121,10 +121,10 @@ def trigger_etl():
 
 @app.route('/etl_results/<etl_id>', methods=['GET'])
 def etl_results(etl_id):
-    '''
+    """
     :param etl_id: an ID
     :return: Return a rich representation of the etl run object, including nested compound and user objects.
-    '''
+    """
     try:
         UUID(etl_id, version=4)
     except ValueError:
@@ -139,6 +139,10 @@ def etl_results(etl_id):
 
 @app.route('/results_by_user/<user_id>', methods=['GET'])
 def results(user_id):
+    """
+    :param user_id: user ID to grab data for
+    :return: Get all past results tied to the specified user
+    """
     results_objects = ETLUserResults.query.filter_by(user_id=user_id).all()
     if results_objects:
         return etl_user_results_schema.dump(results_objects, many=True)

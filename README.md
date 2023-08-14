@@ -10,17 +10,38 @@ Building and running the service from the command line:
 docker compose up
 ```
 
-
-To trigger an etl:
-
+BUT you can use the provided python script which will run in detached mode:
 ```commandline
-curl -X POST -H "Content-Type: application/json" -d "{\"label\": \"etl_run_label\"}" http://localhost:5000/trigger_etl
+python build_and_compose.py
 ```
-double quotes are escaped for windows cmd line
 
-To get past results:
+To trigger an etl using curl:
 
 ```commandline
-curl http://localhost:5000/etl_results/etl_run_label
+curl -X POST http://localhost:5000/trigger_etl
+```
+...but you can also use the provided script:
+```commandline
+python trigger_etl.py
+```
+
+To get past results with curl:
+```commandline
+curl http://localhost:5000/etl_results/etl_id
+```
+or
+```commandline
+curl http://localhost:5000/etl_results/user_id
+```
+
+or using a SQL query:
+
+to get run aggregation...
+```
+SELECT * from etl_run
+```
+or user results table...
+```
+SELECT * from etl_user_results
 ```
 
