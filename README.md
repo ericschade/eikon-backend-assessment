@@ -34,7 +34,7 @@ or
 curl http://localhost:5000/etl_results/user_id
 ```
 
-or using a SQL query:
+or using a SQL query(the db lives at port 5405):
 
 to get run aggregation...
 ```
